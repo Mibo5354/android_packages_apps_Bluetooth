@@ -5137,12 +5137,12 @@ public final class Avrcp {
         List<Byte> absVolumeSupported = new ArrayList<Byte>();
         for (int i = 0; i < maxAvrcpConnections; i++ ) {
             if (deviceFeatures[i].mCurrentDevice != null) {
-                // add 1 in byte list if absolute volume is supported
+                // add 0 in byte list force absolute volume disabled
                 // add 0 in byte list if absolute volume not supported
                 if ((deviceFeatures[i].mFeatures &
                         BTRC_FEAT_ABSOLUTE_VOLUME) != 0) {
-                    Log.v(TAG, "isAbsoluteVolumeSupported: yes, for dev: " + i);
-                    absVolumeSupported.add((byte)1);
+                    Log.v(TAG, "isAbsoluteVolumeSupported: no, for dev: " + i);
+                    absVolumeSupported.add((byte)0);
                 } else {
                     Log.v(TAG, "isAbsoluteVolumeSupported: no, for dev: " + i);
                     absVolumeSupported.add((byte)0);
